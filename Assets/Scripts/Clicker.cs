@@ -5,6 +5,7 @@ public class Clicker : MonoBehaviour
 {
     [SerializeField] private float _clickPower;
     [SerializeField] private Transform _clickerImage;
+    public float ClickPower => _clickPower;
 
     private float _money;
     public float Money
@@ -21,6 +22,8 @@ public class Clicker : MonoBehaviour
     {
         Money += _clickPower;
         _clickerImage.localScale = Vector2.one * .9f;
+
+        AudioManager.Instance.PlayClick();
     }
 
     public void OnClickUp()

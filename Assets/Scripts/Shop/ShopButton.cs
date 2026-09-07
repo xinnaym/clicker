@@ -62,6 +62,8 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler
             }
 
             _clicker.Money -= _info.Price;
+
+            AudioManager.Instance.PlayPurchase();
         }
     }
 }
