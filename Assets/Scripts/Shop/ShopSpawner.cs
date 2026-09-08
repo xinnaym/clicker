@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopSpawner : MonoBehaviour
 {
     [SerializeField] private ShopButton _buttonPrefab;
     [SerializeField] private Transform _parentForButtons;
-    [SerializeField] private List<ProductInfo> _productsInfo = new List<ProductInfo>();
+    [SerializeField] private ProductInfo _catalog;
 
     [Space, SerializeField] private Clicker _clicker;
     [SerializeField] private AutoClicker _autoClicker;
@@ -19,10 +18,32 @@ public class ShopSpawner : MonoBehaviour
     {
         ShopButton previousButton = null;
 
-        for (int i = 0; i < _productsInfo.Count; i++)
+        int clickIndex = 0;
+        int autoClickIndex = 0;
+
+        for (int i = 0; i < _catalog.Items.Count; i++)
         {
+            ProductItem item = _catalog.Items[i];
+
+            float price;
+            float bonus;
+
+            // Расчет экономики
+            if (item.Type == ProductType.click)
+            {
+                price = 15f * Mathf.Pow(3.0f, clickIndex);
+                bonus = (float)System.Math.Round(1f * Mathf.Pow(2.5f, clickIndex));
+                clickIndex++;
+            }
+            else
+            {
+                price = 45f * Mathf.Pow(3.0f, autoClickIndex);
+                bonus = (float)System.Math.Round(1f * Mathf.Pow(2.5f, autoClickIndex));
+                autoClickIndex++;
+            }
+
             ShopButton currentButton = Instantiate(_buttonPrefab, _parentForButtons);
-            currentButton.Initialize(_productsInfo[i], _clicker, _autoClicker);
+            currentButton.Initialize(item, price, bonus, _clicker, _autoClicker);
 
             if (i == 0)
             {

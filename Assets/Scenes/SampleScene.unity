@@ -1596,9 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopSpawner
   _buttonPrefab: {fileID: 6756539300032158856, guid: 4790e36a61ea3af44b9f9c371bbd2aca, type: 3}
   _parentForButtons: {fileID: 317148052}
-  _productsInfo:
-  - {fileID: 11400000, guid: c89d902aa4fc2544698bc57881ad4554, type: 2}
-  - {fileID: 11400000, guid: 9340fe283b1a6da40a83648185cc1652, type: 2}
+  _catalog: {fileID: 11400000, guid: aba9f892ac34f3c4887fee44dedfe1f8, type: 2}
   _clicker: {fileID: 1157260003}
   _autoClicker: {fileID: 1049015704}
 --- !u!1 &740562417

@@ -13,17 +13,22 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TMP_Text _infoText;
     [SerializeField] private TMP_Text _priceText;
     [SerializeField] private GameObject _hidePanel;
-    
-    private ProductInfo _info;
+
+    private ProductItem _item;
+    private float _price;
+    private float _bonus;
 
     [Space, SerializeField] private Clicker _clicker;
     [SerializeField] private AutoClicker _autoClicker;
 
-    public void Initialize(ProductInfo info, Clicker clicker, AutoClicker autoClicker)
+    public void Initialize(ProductItem item, float price, float bonus, Clicker clicker, AutoClicker autoClicker)
     {
-        _info = info;
+        _item = item;
+        _price = price;
+        _bonus = bonus;
         _clicker = clicker;
         _autoClicker = autoClicker;
+
         UpdateInfo();
     }
 
@@ -34,31 +39,32 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler
 
     private void UpdateInfo()
     {
-        _icon.sprite = _info.Icon;
-        _nameText.text = _info.RuName;
+        _icon.sprite = _item.Icon;
+        _nameText.text = _item.RuName;
 
-        if (_info.Type == ProductType.click)
-            _infoText.text = $"+{_info.BonusValue} силы клика";
+        // "F0" гарантирует вывод строго целым числом (или используй _bonus.ToFormattedString() если число больше 1000)
+        if (_item.Type == ProductType.click)
+            _infoText.text = $"+{_bonus.ToFormattedString()} силы клика";
         else
-            _infoText.text = $"+{_info.BonusValue} силы авто клика";
-            
-        _priceText.text = $"Цена: {_info.Price}";
+            _infoText.text = $"+{_bonus.ToFormattedString()} силы авто клика";
+
+        _priceText.text = $"Цена: {_price.ToFormattedString()}";
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_clicker.Money >= _info.Price)
+        if (_clicker.Money >= _price)
         {
-            if (_info.Type == ProductType.click)
+            if (_item.Type == ProductType.click)
             {
-                _clicker.UpgradeClickPower(_info.BonusValue);
+                _clicker.UpgradeClickPower(_bonus);
             }
             else
             {
-                _autoClicker.UpgradeAutoIncomePower(_info.BonusValue);
+                _autoClicker.UpgradeAutoIncomePower(_bonus);
             }
 
-            _clicker.Money -= _info.Price;
+            _clicker.Money -= _price;
 
             AudioManager.Instance.PlayPurchase();
 
