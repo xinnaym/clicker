@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class ShopSpawner : MonoBehaviour
@@ -18,10 +17,37 @@ public class ShopSpawner : MonoBehaviour
 
     private void SpawnButtons()
     {
+        ShopButton previousButton = null;
+
         for (int i = 0; i < _productsInfo.Count; i++)
         {
-            ShopButton button = Instantiate(_buttonPrefab, _parentForButtons);
-            button.Initialize(_productsInfo[i], _clicker, _autoClicker);
+            ShopButton currentButton = Instantiate(_buttonPrefab, _parentForButtons);
+            currentButton.Initialize(_productsInfo[i], _clicker, _autoClicker);
+
+            if (i == 0)
+            {
+                currentButton.SetLockState(false);
+            }
+            else
+            {
+                currentButton.SetLockState(true);
+
+                if (previousButton != null)
+                {
+                    ShopButton targetButton = currentButton;
+                    ShopButton sourceButton = previousButton;
+
+                    void OnPreviousPurchased()
+                    {
+                        targetButton.SetLockState(false);
+                        sourceButton.OnPurchased -= OnPreviousPurchased;
+                    }
+
+                    previousButton.OnPurchased += OnPreviousPurchased;
+                }
+            }
+
+            previousButton = currentButton;
         }
     }
 }

@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip _clickSound;
     [SerializeField] private AudioClip _purchaseSound;
     private bool _isMuted;
+    public bool IsMuted => _isMuted;
 
     private void Awake()
     {

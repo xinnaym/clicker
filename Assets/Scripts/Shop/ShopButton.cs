@@ -1,11 +1,13 @@
+using System;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
-using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 
 public class ShopButton : MonoBehaviour, IPointerClickHandler
 {
+    public event Action OnPurchased;
+
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _infoText;
@@ -23,17 +25,11 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler
         _clicker = clicker;
         _autoClicker = autoClicker;
         UpdateInfo();
-
-        _clicker.OnChangeMoneyValue += UpdateHidePanel;
     }
 
-    private void UpdateHidePanel()
+    public void SetLockState(bool isLocked)
     {
-        if (_clicker.Money >= _info.Price)
-        {
-            _hidePanel.SetActive(false);
-            _clicker.OnChangeMoneyValue -= UpdateHidePanel;
-        }
+        _hidePanel.SetActive(isLocked);
     }
 
     private void UpdateInfo()
@@ -45,6 +41,7 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler
             _infoText.text = $"+{_info.BonusValue} силы клика";
         else
             _infoText.text = $"+{_info.BonusValue} силы авто клика";
+            
         _priceText.text = $"Цена: {_info.Price}";
     }
 
@@ -64,6 +61,8 @@ public class ShopButton : MonoBehaviour, IPointerClickHandler
             _clicker.Money -= _info.Price;
 
             AudioManager.Instance.PlayPurchase();
+
+            OnPurchased?.Invoke();
         }
     }
 }

@@ -58,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -117,10 +117,10 @@ TextureImporter:
       name: UnmuteButton_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 99
-        width: 85
-        height: 163
+        x: 1
+        y: 82
+        width: 58
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,10 +139,10 @@ TextureImporter:
       name: UnmuteButton_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 8
-        width: 158
-        height: 344
+        x: 63
+        y: 6
+        width: 106
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +161,10 @@ TextureImporter:
       name: UnmuteButton_2
       rect:
         serializedVersion: 2
-        x: 284
-        y: 105
-        width: 51
-        height: 150
+        x: 188
+        y: 87
+        width: 35
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: UnmuteButton_3
       rect:
         serializedVersion: 2
-        x: 322
-        y: 63
-        width: 70
-        height: 234
+        x: 213
+        y: 52
+        width: 48
+        height: 195
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: UnmuteButton_4
       rect:
         serializedVersion: 2
-        x: 363
-        y: 23
-        width: 87
-        height: 315
+        x: 240
+        y: 19
+        width: 59
+        height: 262
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,7 +227,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: e998e7e327c7ac44cb506ea69dea57e8
+guid: a056ffe0c1e82a44c984466130d3ed13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3534288053459477036
-    second: MuteButton_0
-  - first:
-      213: -675786681776842387
-    second: MuteButton_1
-  - first:
-      213: -573424219692308005
-    second: MuteButton_2
+      213: 5842654155883284172
+    second: AdIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -108,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MuteButton_0
+      name: AdIcon_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 85
-        width: 58
-        height: 135
+        x: 0
+        y: 28
+        width: 256
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,52 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4dd14a7adbfa3fec0800000000000000
-      internalID: -3534288053459477036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuteButton_1
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 10
-        width: 106
-        height: 285
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6950c8e79f1f96f0800000000000000
-      internalID: -675786681776842387
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MuteButton_2
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 85
-        width: 108
-        height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd962a7d5b9ca08f0800000000000000
-      internalID: -573424219692308005
+      spriteID: cc602e2cff6451150800000000000000
+      internalID: 5842654155883284172
       vertices: []
       indices: 
       edges: []
@@ -187,9 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MuteButton_0: -3534288053459477036
-      MuteButton_1: -675786681776842387
-      MuteButton_2: -573424219692308005
+      AdIcon_0: 5842654155883284172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
